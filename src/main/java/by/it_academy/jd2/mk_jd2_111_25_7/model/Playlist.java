@@ -13,6 +13,14 @@ public class Playlist {
         this.songs = new ArrayList<>();
     }
 
+    public void addSong(Song song) {
+        this.songs.add(song);
+    }
+
+    public void removeSong(String songId){
+        this.songs.removeIf(song -> song.getId().equals(songId));
+    }
+
     public String getUserEmail() {
         return userEmail;
     }
@@ -22,7 +30,7 @@ public class Playlist {
     }
 
     public List<Song> getSongs() {
-        return songs;
+        return new ArrayList<>(this.songs);
     }
 
     public void setSongs(List<Song> songs) {

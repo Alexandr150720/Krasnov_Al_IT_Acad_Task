@@ -13,7 +13,7 @@
 
     <servlet-mapping>
         <servlet-name>PlaylistController</servlet-name>
-        <url-pattern>/playlist/*</url-pattern>
+        <url-pattern>/api/*</url-pattern>
     </servlet-mapping>
 
 </web-app>

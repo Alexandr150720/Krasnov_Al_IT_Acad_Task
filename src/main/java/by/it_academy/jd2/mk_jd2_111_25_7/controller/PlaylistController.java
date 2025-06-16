@@ -36,7 +36,8 @@ public class PlaylistController extends HttpServlet {
             throws ServletException, IOException {
         String pathInfo = request.getPathInfo();
         if (pathInfo.startsWith("/playlist/songs/")) {
-            String songId = pathInfo.substring("/playlist/songs/".length());
+            String[] splittedPath = pathInfo.split("/");
+            String songId = splittedPath[splittedPath.length - 1];
             handleRemoveSong(songId, request, response);
         }
     }
@@ -69,7 +70,7 @@ public class PlaylistController extends HttpServlet {
         String body = readBody(request);
         String[] songData = body.split(",");
         Song song = new Song(UUID.randomUUID().toString(), songData[0].trim(), songData[1].trim());
-        playlistService.addSong(song);
+        playlistService.addSong(userEmail, song);
         response.setStatus(HttpServletResponse.SC_CREATED);
     }
 

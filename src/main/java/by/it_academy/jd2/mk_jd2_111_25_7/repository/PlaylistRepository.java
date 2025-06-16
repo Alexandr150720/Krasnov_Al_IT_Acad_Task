@@ -18,7 +18,7 @@ public class PlaylistRepository implements IPlaylistRepository {
     public void addSong(String email, Song song) {
         Playlist playlist = playlists.get(email);
         if (playlist != null) {
-            playlist.getSongs().add(song);
+            playlist.addSong(song);
         }
     }
 
@@ -26,7 +26,7 @@ public class PlaylistRepository implements IPlaylistRepository {
     public void removeSong(String email, String songId) {
         Playlist playlist = playlists.get(email);
         if (playlist != null) {
-            playlist.getSongs().removeIf(song -> song.getId().equals(songId));
+            playlist.removeSong(songId);
         }
     }
 

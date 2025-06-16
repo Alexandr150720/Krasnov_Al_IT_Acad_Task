@@ -19,11 +19,11 @@ public class PlaylistService implements IPlaylistService{
     }
 
     @Override
-    public void addSong(Song song) {
+    public void addSong(String email, Song song) {
         if (song.getId() == null) {
             song.setId(UUID.randomUUID().toString());
         }
-        repository.addSong(song.getId(), song);
+        repository.addSong(email, song);
     }
 
     @Override
